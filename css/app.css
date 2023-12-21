@@ -1,0 +1,16 @@
+.navigator {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(0, 0, 0, 0.274);
+  padding: 20px 10px;
+}
+.navigator__router a:hover {
+  color: antiquewhite;
+}
+.user :first-child {
+  margin-right: 15px;
+}
+
+.user :last-child:hover {
+  color: antiquewhite;
+}
