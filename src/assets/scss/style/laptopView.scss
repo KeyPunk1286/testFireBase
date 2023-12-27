@@ -1,0 +1,139 @@
+//============== view =====================
+.laptop-view {
+    display: flex;
+    padding-top: 40px;
+
+    &__filter {
+        padding: 0 20px 0;
+    }
+
+    &__list {
+    }
+}
+
+//================== filter ==============
+
+.laptop-filter {
+    &__sellers {
+        margin-bottom: 35px;
+    }
+
+    &__brand-filter {
+        margin-bottom: 20px;
+        input {
+            border: 1px rgba(0, 0, 0, 0.525) solid;
+            border-radius: 3px;
+            padding: 0 10px 0;
+            width: 150px;
+        }
+    }
+
+    &__brand {
+        margin-bottom: 20px;
+    }
+
+    &__button-reset {
+        button {
+            border: 1px rgba(0, 0, 0, 0.639) solid;
+            padding: 5px;
+            border-radius: 3px;
+        }
+    }
+    &__button-reset :first-child {
+        margin-bottom: 30px;
+    }
+}
+.sellers {
+    &__item {
+        input {
+            margin-right: 10px;
+        }
+    }
+    &__item:not(:last-child) {
+        margin-bottom: 10px;
+    }
+}
+.brand {
+    &__item {
+        input {
+            margin-right: 10px;
+        }
+    }
+    &__item:not(:last-child) {
+        margin-bottom: 10px;
+    }
+}
+
+//================= list-laptop ===========
+.laptop-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+
+    &__item {
+        max-width: 303px;
+        border: 1px black solid;
+        border-radius: 3px;
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+    }
+}
+.item {
+    &__img {
+        max-width: 100%;
+    }
+
+    &__info {
+        margin-bottom: 10px;
+    }
+
+    &__price {
+        color: darkgreen;
+        margin-bottom: 10px;
+    }
+
+    &__button {
+        button {
+            border: 1px rgba(0, 0, 0, 0.748) solid;
+            border-radius: 3px;
+            padding: 5px;
+        }
+    }
+}
+
+//================== laptop-edit =========
+.laptop-edit {
+    padding: 20px 0 20px;
+
+    &__input-box :not(:last-of-type) {
+        margin-bottom: 20px;
+    }
+
+    &__button {
+        max-width: 30%;
+        display: flex;
+        justify-content: space-between;
+        padding-top: 30px;
+        button {
+            border: 1px rgba(0, 0, 0, 0.548) solid;
+            border-radius: 3px;
+            padding: 5px;
+        }
+    }
+}
+.input-box {
+    &__item {
+        max-width: 50%;
+        display: flex;
+        justify-content: space-between;
+        label {
+            margin-right: 30px;
+        }
+        input {
+            border: 1px rgba(0, 0, 0, 0.605) solid;
+            border-radius: 3px;
+            padding: 0 0 0 10px;
+        }
+    }
+}

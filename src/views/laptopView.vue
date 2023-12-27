@@ -1,9 +1,11 @@
 <template>
-    <div>
-        <laptop-filter />
-    </div>
-    <div>
-        <laptop-list />
+    <div class="laptop-view">
+        <div class="laptop-view__filter">
+            <laptop-filter />
+        </div>
+        <div class="laptop-view__list">
+            <laptop-list />
+        </div>
     </div>
 </template>
 

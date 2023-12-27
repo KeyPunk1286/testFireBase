@@ -1,0 +1,41 @@
+{
+    "header": {
+        "home": "Головна",
+        "laptop": "Ноутбуки",
+        "basket": "Кошик",
+        "login": "вхід",
+        "logout": "вийти"
+    },
+    "homePage": {
+        "title": "Занурся в безмежжя можливостей з нашими лаптопами. Нові горизонти, нові досягнення – це твій час засяяти!"
+    },
+    "laptopPage": {
+        "placeholder": "знайти бренд",
+        "buttonRset": "скинути фільтри",
+        "buttonBasket": "кошик",
+        "buttonAdd": "додати"
+    },
+    "iaptopItem": {
+        "buttonEdit": "редагувати",
+        "buttonDelete": "видалити"
+    },
+    "laptopEdit": {
+        "inputIgmg": "посилання на зображення",
+        "inputInfo": "модель",
+        "inputPrice": "ціна",
+        "inputSellers": "продавець",
+        "inputBrand": "бренд",
+        "cancelButton": "скасувати"
+    },
+    "basketPage": {
+        "title": "Ваш кошик:",
+        "titleNotSelected": "обраного товару ще немає",
+        "buttonOnSelect": "обрати товар",
+        "deleteButton": "видалити",
+        "allSum": "сума разом:"
+    },
+    "loginPage": {
+        "title": "Авторизуйтесь для подальших дій",
+        "button": "авторизуватись"
+    }
+}

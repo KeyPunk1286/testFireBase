@@ -7,10 +7,14 @@
 .navigator__router a:hover {
   color: antiquewhite;
 }
-.user :first-child {
+.user-login {
+  display: flex;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+}
+.user-login__email span {
   margin-right: 15px;
 }
-
-.user :last-child:hover {
+.user-login__email button {
   color: antiquewhite;
 }

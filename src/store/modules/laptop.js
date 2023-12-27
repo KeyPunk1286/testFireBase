@@ -5,8 +5,8 @@ export default {
     namespaced: true,
     state: () => ({
         laptopProductList: [],
-        filteredProductList: {},
-        filteredProductListInfo: null,
+        // filteredProductList: {},
+        // filteredProductListInfo: null,
 
         loading: false,
         error: null,
@@ -15,28 +15,16 @@ export default {
         isLoading: (state) => state.loading,
         hasError: (state) => state.error,
 
-        // getLaptopProductList: (state) =>
-        //     state.laptopProductList.filter((laptop) =>
-        //         isMatchFilter(laptop, state.filteredProductList, state.filteredProductListInfo)
-        //     ),
-        // getItemById: (state) => (itemId) => state.todoList.find((item) => item.id == itemId),
-
-        getUniqueSellers: (state) => {
-            const uniqueBrandsSet = new Set(state.laptopProductList.map((laptop) => laptop.sellers))
-            return Array.from(uniqueBrandsSet)
-        },
-        getUniqueBrand: (state) => {
-            const uniqueBrandsSet = new Set(state.laptopProductList.map((laptop) => laptop.brand))
-            return Array.from(uniqueBrandsSet)
-        },
+        getLaptopProductList: (state) => state.laptopProductList,
+        getItemById: (state) => (itemId) => state.laptopProductList.find((item) => item.id == itemId),
     },
     mutations: {
         setItemsList(state, itemsList) {
             state.laptopProductList = itemsList
         },
-        deleteItem(state, itemId) {
-            state.todoList = state.laptopProductList.filter((item) => item.id !== itemId)
-        },
+        // deleteItem(state, itemId) {
+        //     state.todoList = state.laptopProductList.filter((item) => item.id !== itemId)
+        // },
 
         setLoading(state, value) {
             state.loading = value
@@ -44,13 +32,13 @@ export default {
         setError(state, error) {
             state.error = error
         },
-        setFilteredLaptodList(state, newValue) {
-            state.filteredProductList = newValue
-            console.log(newValue)
-        },
-        setFilteredInfo(state, newVal) {
-            state.filteredProductListInfo = newVal
-        },
+        // setFilteredLaptodList(state, newValue) {
+        //     state.filteredProductList = newValue
+        //     console.log(newValue)
+        // },
+        // setFilteredInfo(state, newVal) {
+        //     state.filteredProductListInfo = newVal
+        // },
     },
     actions: {
         loadList({ commit }) {
@@ -84,15 +72,15 @@ export default {
                     commit('setLoading', false)
                 })
         },
-        deleteItem({ commit }, itemId) {
+        deleteItem({ commit, dispatch }, itemId) {
             commit('setError', null)
             commit('setLoading', true)
 
             collectionDB
                 .deleteItem(itemId)
                 .then(() => {
-                    commit('deleteItem', itemId)
-                    // dispatch('loadList')
+                    // commit('deleteItem', itemId)
+                    dispatch('loadList')
                 })
                 .catch((error) => {
                     commit('setError', error)
@@ -117,26 +105,57 @@ export default {
                     commit('setLoading', false)
                 })
         },
-        loadFilteredData({ commit }, { fieldTitle, compareOperator, valueToCompare }) {
-            commit('setError', null)
-            commit('setLoading', true)
-            collectionDB
-                .loadFilteredData(fieldTitle, compareOperator, valueToCompare)
-                .then((list) => {
-                    commit('setItemsList', list)
-                })
-                .catch((error) => {
-                    commit('setError', error)
-                })
-                .finally(() => {
-                    commit('setLoading', false)
-                })
-        },
-        filteredLaptopList({ commit }, newValue) {
-            commit('setFilteredLaptodList', newValue)
-        },
-        filteredInfo({ commit }, newVal) {
-            commit('setFilteredInfo', newVal)
+
+        loadFilteredNotebooksList({ commit, dispatch }, filterObj) {
+            const sellersFilterArr = filterObj.sellersList
+            const brandsFilterArr = filterObj.brandList
+            if (sellersFilterArr.length && brandsFilterArr.length) {
+                console.log('Sellers', sellersFilterArr)
+                console.log('Brands', brandsFilterArr)
+                commit('setError', null)
+                commit('setLoading', true)
+                collectionDB
+                    .loadFilteredDataWithTwoFields('sellers', 'in', sellersFilterArr, 'brand', 'in', brandsFilterArr)
+                    .then((list) => {
+                        commit('setItemsList', list)
+                    })
+                    .catch((error) => {
+                        commit('setError', error)
+                    })
+                    .finally(() => {
+                        commit('setLoading', false)
+                    })
+            } else if (sellersFilterArr.length && !brandsFilterArr.length) {
+                commit('setError', null)
+                commit('setLoading', true)
+                collectionDB
+                    .loadFilteredData('sellers', 'in', sellersFilterArr)
+                    .then((list) => {
+                        commit('setItemsList', list)
+                    })
+                    .catch((error) => {
+                        commit('setError', error)
+                    })
+                    .finally(() => {
+                        commit('setLoading', false)
+                    })
+            } else if (!sellersFilterArr.length && brandsFilterArr.length) {
+                commit('setError', null)
+                commit('setLoading', true)
+                collectionDB
+                    .loadFilteredData('brand', 'in', brandsFilterArr)
+                    .then((list) => {
+                        commit('setItemsList', list)
+                    })
+                    .catch((error) => {
+                        commit('setError', error)
+                    })
+                    .finally(() => {
+                        commit('setLoading', false)
+                    })
+            } else {
+                dispatch('loadList')
+            }
         },
     },
 }

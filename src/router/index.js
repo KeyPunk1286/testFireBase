@@ -18,6 +18,33 @@ const routes = [
         component: () => import(/* webpackChunkName: "about" */ '../views/laptopView.vue'),
         meta: { requiredAuth: false },
     },
+    {
+        path: '/edit-card/:id?',
+        name: 'edit-card',
+        // route level code-splitting
+        // this generates a separate chunk (about.[hash].js) for this route
+        // which is lazy-loaded when the route is visited.
+        component: () => import(/* webpackChunkName: "about" */ '../components/laptop/LaptopEdit.vue'),
+        meta: { requiredAuth: true },
+    },
+    {
+        path: '/basket',
+        name: 'basket',
+        // route level code-splitting
+        // this generates a separate chunk (about.[hash].js) for this route
+        // which is lazy-loaded when the route is visited.
+        component: () => import(/* webpackChunkName: "about" */ '../views/BasketView.vue'),
+        meta: { requiredAuth: true },
+    },
+    {
+        path: '/login',
+        name: 'login',
+        // route level code-splitting
+        // this generates a separate chunk (about.[hash].js) for this route
+        // which is lazy-loaded when the route is visited.
+        component: () => import(/* webpackChunkName: "about" */ '../views/LoginPage.vue'),
+        meta: { requiredAuth: false },
+    },
 ]
 
 const router = createRouter({

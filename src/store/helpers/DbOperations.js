@@ -76,8 +76,33 @@ class DbOperations {
                 })
         })
     }
+
     loadFilteredData(fieldTitle, compareOperator, valueToCompare) {
         const q = query(this.dbCollection, where(fieldTitle, compareOperator, valueToCompare))
+        return new Promise((resolve, reject) => {
+            getDocs(q)
+                .then((querySnapshot) => {
+                    resolve(this.getListFromSnapshot(querySnapshot))
+                })
+                .catch((error) => {
+                    reject(error)
+                })
+        })
+    }
+
+    loadFilteredDataWithTwoFields(
+        fieldTitle1,
+        compareOperator1,
+        valueToCompare1,
+        fieldTitle2,
+        compareOperator2,
+        valueToCompare2
+    ) {
+        const q = query(
+            this.dbCollection,
+            where(fieldTitle1, compareOperator1, valueToCompare1),
+            where(fieldTitle2, compareOperator2, valueToCompare2)
+        )
         return new Promise((resolve, reject) => {
             getDocs(q)
                 .then((querySnapshot) => {

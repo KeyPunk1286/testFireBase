@@ -1,0 +1,41 @@
+{
+    "header": {
+        "home": "Home",
+        "laptop": "Laptop",
+        "basket": "Basket",
+        "login": "login",
+        "logout": "logout"
+    },
+    "homePage": {
+        "title": "Dive into the boundless possibilities with our laptops. New horizons, new achievements – it's your time to shine!"
+    },
+    "laptopPage": {
+        "placeholder": "find brand",
+        "buttonRset": "reset filters",
+        "buttonBasket": "basket",
+        "buttonAdd": "add new"
+    },
+    "iaptopItem": {
+        "buttonEdit": "edit",
+        "buttonDelete": "delete"
+    },
+    "laptopEdit": {
+        "inputIgmg": "image",
+        "inputInfo": "model",
+        "inputPrice": "price",
+        "inputSellers": "sellers",
+        "inputBrand": "brand",
+        "cancelButton": "cancel"
+    },
+    "basketPage": {
+        "title": "Your shopping cart",
+        "titleNotSelected": "no item selected yet",
+        "buttonOnSelect": "choose some product",
+        "deleteButton": "delete",
+        "allSum": "amount:"
+    },
+    "loginPage": {
+        "title": "Log in for further actions",
+        "button": "login"
+    }
+}

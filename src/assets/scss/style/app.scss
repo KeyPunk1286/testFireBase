@@ -13,11 +13,24 @@
     &__auth {
     }
 }
-.user :first-child {
-    margin-right: 15px;
-}
-.user :last-child:hover {
-    color: antiquewhite;
-}
-.user-out {
+
+//===================== login-logout ============
+.user-login {
+    display: flex;
+    column-gap: 20px;
+
+    &__language-button {
+    }
+
+    &__email {
+        span {
+            margin-right: 15px;
+        }
+        button {
+            color: antiquewhite;
+        }
+    }
+
+    &__button-in {
+    }
 }

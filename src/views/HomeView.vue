@@ -1,7 +1,5 @@
 <template>
-    <div class="title">
-        "Занурся в безмежжя можливостей з нашими лаптопами. Нові горизонти, нові досягнення – це твій час засяяти!
-    </div>
+    <div class="title">"{{ $t('homePage.title') }}"</div>
 </template>
 
 <script>

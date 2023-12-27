@@ -1,0 +1,31 @@
+.basket-vuew {
+  padding-top: 20px;
+}
+.basket-vuew__title {
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+.selected-box__item {
+  border-bottom: 1px rgba(0, 0, 0, 0.479) solid;
+  padding-bottom: 5px;
+}
+.selected-box__item p {
+  margin-bottom: 15px;
+}
+.selected-box__item button {
+  border: 1px rgba(0, 0, 0, 0.496) solid;
+  border-radius: 3px;
+  padding: 5px;
+}
+.selected-box__item:not(:last-of-type) {
+  margin-bottom: 20px;
+}
+.not-selected__title {
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+.not-selected__button button {
+  border: 1px rgba(0, 0, 0, 0.502) solid;
+  border-radius: 3px;
+  padding: 5px;
+}
